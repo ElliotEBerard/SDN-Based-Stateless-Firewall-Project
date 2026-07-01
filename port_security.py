@@ -34,7 +34,7 @@ def monitor_flows():
 
 def block_address(mac_addr):
 	#add flow to black malicous source MAC address
-	subprocess.run(['sudo', 'ovs-ofctl', 'add-flow', 's1', 'table=0,priority=65535,dl_src=' + mac_addr + ',actions=drop'])
+	subprocess.run(['sudo', 'ovs-ofctl', 'add-flow', 's1', 'table=0,dl_src=' + mac_addr + ',actions=drop'])
 	blocked_addr[mac_addr] = 'blocked'
 	return
 
